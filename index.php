@@ -7,21 +7,12 @@
 </head>
 <body>
     <?php
-        $username = "";
-        $password = "";
-        if(isset($_POST['btn'])){
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-        }else{ ?>
-            <form action="index.php" method="POST">
-                <input type="text" name="username" placeholder="Skriv in ditt avändarnamn">
-                <input type="password" name="password" placeholder="Skriv in ditt lösenord">
-                <input type="submit" name="btn" value="Skicka">
-            </form>
-        <?php } ?>
-    <div class="container">
-        <p><?=$username?><br><?=$password?></p>
-    </div>
+        $siffror = ["ett", "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio", "tio"];
+        $counter = count($siffror);
+        for($x=0; $x<$counter; $x++){
+            echo "rad ", $siffror[$x], "<br>";
+        }
+    ?>
     
 </body>
 </html>
