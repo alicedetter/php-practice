@@ -6,22 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-    if(isset($_GET['get_btn'])): ?>
-        <form action="index.php" method="POST">
-            <input type="text" name="text" value="<?=$_GET['text']?>">
-            <input type="submit" name="post_btn" value="skicka">
-        </form>
-    <?php elseif(isset($_POST['text'])): ?>
-        <form action="index.php" method="GET">
-            <input type="text" name="text" value="<?=$_POST['text']?>">
-            <input type="submit" name="get_btn" value="skicka">
-        </form>
-    <?php else: ?>
-        <form action="index.php" method="GET">
-            <input type="text" name="text" value="">
-            <input type="submit" name="get_btn" value="skicka">
-        </form>
-    <?php endif ?>
+    <?php if(isset($_POST['submit'])):
+        $name = $_POST['name'];
+        $age = $_POST['age'];
+    endif;
+
+    if(isset($_POST['submit'])):
+        if(intval($age) < 18):
+            echo "Hej ", $name, ", du är för ung för att använda denna webbsida.";
+        else:
+            echo "Hej ", $name, ", välkommen till vår webbsida!";
+        endif;
+    endif;
+    ?>
 </body>
 </html>
